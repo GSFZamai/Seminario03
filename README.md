@@ -22,3 +22,8 @@
   - HTML 5.0 e CSS3;
   - Bootstrap;
   - JavaScript.
+
+## Desenvolvido por
+  - Gabriel
+  - Elvis
+  - Leonardo
