@@ -1,66 +1,80 @@
+/* 
+    Costuma-se utilizar essa formatação para padronizar que todos os elementos da páginas terão o valor de margem e padding inicial de 0
+*/
+* {
+    margin: 0px;
+    padding: 0px;
+}
 
-body{
-    font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;
-    background:rgba(168, 163, 163, 0.993);
-    margin-top:10em;
+/*
+    Optei por utilizar os recursos so flex, por ser mais intuitivo.
+    Como estou centralizando com justify-contente e align-items, removi as margens por não serem mais necessárias
+*/
+body {
+    height: 100vh;
+    font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    background: rgba(168, 163, 163, 0.993);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
-#principal{
-    width:40%;
-    height:30em;
-    margin: auto ;
-    border:2px solid black;
+/*
+    Removi margin aqui também por conta do flex para centralizar.
+
+*/
+#principal {
+    height: 30em;
+    padding: 0px 50px;
+    display: flex;
+    margin: auto;
+    border: 2px solid black;
     border-radius: 20px;
-    display:flex;
     min-width: 30%;
-
-   
-    
 }
-.login{
-    width: 30%; 
-    
+
+.recepcao {
+    width: 70%;
+    float: right;
+    margin: auto;
+    background-color: rgb(107, 144, 192);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border-radius: 20px 0px 0px 20px;
+    color: white;
+}
+
+img {
+    width: 18em;
+    image-orientation: from-image;
+}
+
+.login {
+    width: 30%;
     margin: 0;
     padding: 20px;
     text-align: center;
     background-color: white;
     border-radius: 0px 20px 20px 0px;
-    color:rgb(107, 144, 192);
-    
+    color: rgb(107, 144, 192);
 }
-.formulario{
-    text-align:left;
+
+.formulario {
+    text-align: left;
     padding: 10px;
     margin: 10px;
-    
+
 }
-.botoes{
-    text-align:center;
+
+label,
+input {
+    margin: 10px;
+}
+
+.botoes {
+    text-align: center;
     padding: 10px;
     margin: 10px;
-    
-
-}
-label,input{
-    margin:10px;
-}
-
-
-.recepcao{
-    width:70% ;
-    
-    float: right;
-    margin: auto ;
-    background-color:rgb(107, 144, 192);
-    margin: 0;
-    padding: 0;
-    text-align:center;
-    border-radius: 20px 0px 0px 20px;
-    color: white;
-    
-}
-img{
-    width: 18em;
-    image-orientation: from-image;
 }
