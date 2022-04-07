@@ -22,11 +22,9 @@ body {
 
 /*
     Removi margin aqui também por conta do flex para centralizar.
-
 */
 #principal {
     height: 30em;
-    padding: 0px 50px;
     display: flex;
     margin: auto;
     border: 2px solid black;
@@ -35,12 +33,14 @@ body {
 }
 
 .recepcao {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 70%;
-    float: right;
     margin: auto;
     background-color: rgb(107, 144, 192);
-    margin: 0;
-    padding: 0;
     text-align: center;
     border-radius: 20px 0px 0px 20px;
     color: white;
@@ -48,12 +48,16 @@ body {
 
 img {
     width: 18em;
+    margin-top: 30px;
     image-orientation: from-image;
 }
 
 .login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 30%;
-    margin: 0;
     padding: 20px;
     text-align: center;
     background-color: white;
