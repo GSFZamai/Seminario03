@@ -1,0 +1,66 @@
+
+body{
+    font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;
+    background:rgba(168, 163, 163, 0.993);
+    margin-top:10em;
+}
+
+
+#principal{
+    width:40%;
+    height:30em;
+    margin: auto ;
+    border:2px solid black;
+    border-radius: 20px;
+    display:flex;
+    min-width: 30%;
+
+   
+    
+}
+.login{
+    width: 30%; 
+    
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    border-radius: 0px 20px 20px 0px;
+    color:rgb(107, 144, 192);
+    
+}
+.formulario{
+    text-align:left;
+    padding: 10px;
+    margin: 10px;
+    
+}
+.botoes{
+    text-align:center;
+    padding: 10px;
+    margin: 10px;
+    
+
+}
+label,input{
+    margin:10px;
+}
+
+
+.recepcao{
+    width:70% ;
+    
+    float: right;
+    margin: auto ;
+    background-color:rgb(107, 144, 192);
+    margin: 0;
+    padding: 0;
+    text-align:center;
+    border-radius: 20px 0px 0px 20px;
+    color: white;
+    
+}
+img{
+    width: 18em;
+    image-orientation: from-image;
+}
