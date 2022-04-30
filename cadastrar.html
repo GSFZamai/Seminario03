@@ -24,16 +24,16 @@
                 <!-- O atributo for da tag label deve sempre indicar o atributo name da tag input -->    
 
                 <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome" placeholder="Nome"><br>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" placeholder="email@exemplo.com"><br>
+                <input required type="text" name="nome" id="nome" placeholder="Nome"><br>
+                <label  for="email">Email:</label>
+                <input required type="email" name="email" id="email" placeholder="email@exemplo.com"><br>
 
                 <!-- Não podemos atribuir dois inputs com o mesmo valor na propriedade name. Pois haverá conflito ao enviar o fomulário -->    
 
                 <label for="senha">Digite sua senha:</label>
-                <input type="password" name="senha" id="senha"><br>
+                <input required type="password" name="senha" id="senha"><br>
                 <label for="confirmacao_senha">Confirme sua senha:</label>
-                <input type="password" name="confirmacao_senha" id="confirmar_senha"><br>
+                <input required type="password" name="confirmacao_senha" id="confirmar_senha"><br>
 
                 <!-- O input type do botão deve ter o valor submit, pois assim ele realizará o envio do formulário conforme as configurações da tag form (metho e action) -->  
                 <input type="submit" value="Enviar" >
