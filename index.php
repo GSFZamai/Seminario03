@@ -1,3 +1,13 @@
+<?php 
+    session_start();
+    //$_SESSION["logged"] = false;
+   // $_SESSION["Nome"] = "";
+
+    if(isset($_SESSION["Nome"])) {
+        print_r($_SESSION);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,12 +16,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo.css">
     
-    <title>Finanças</title>
+    <title>Finanças - <?php echo $_SESSION["Nome"] ?></title>
 </head>
 <body>
-    
+   
     <div id="principal">
-
         <div class="recepcao">
             <h2>SEJA BEM-VINDO</h2>
             <P>UTILIZE NOSSOS SERVIÇOS PARA MELHORAR SUA ADMINISTRAÇÃO</P>
@@ -21,11 +30,11 @@
     
         <div class="login">
             <h2>login</h2>
-            <form class="formulario">
+            <form class="formulario" method="POST" action="./scripts/login.php">
                <label for="text">digite seu email:</label>
                <input type="email" name="email" id="email" placeholder="email@exemplo.com"><br>
                <label for="password">digite sua senha:</label>
-               <input type="password" name="senha" id="senha" placeholder="*********"><br>
+               <input type="password" name="password" id="password" placeholder="*********"><br>
              
                <input type="radio" name="lembrar-me" value="lembrar-me">
                <label for="lembrar-me">lembrar-me</label><br>

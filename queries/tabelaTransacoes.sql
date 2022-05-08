@@ -1,0 +1,10 @@
+USE financas;
+CREATE TABLE Transacoes(
+	Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Descriao VARCHAR(100) NOT NULL,
+    Valor DOUBLE(10,2) NOT NULL,
+    Exibe TINYINT NOT NULL DEFAULT 1,
+    Data DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    Id_Usuario INT,
+    CONSTRAINT FK_Transacoes_Usuarios FOREIGN KEY Id_Usuario REFERENCES usuarios(Id)    
+);
