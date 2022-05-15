@@ -4,17 +4,24 @@ $nome = $_SESSION["Nome"];
 $id = $_SESSION["Id"];
 $db = require_once("./scripts/db.php");
 
-class Transacao
-{
-    public int $Id;
-    public string $Descricao;
-    public int $Valor;
-    public $Data;
-}
-
-
-$query = "SELECT * FROM transacoes WHERE Id_Usuario = $id";
+$query = "
+SELECT 			
+(Select SUM(Valor) from transacoes WHERE Tipo_Transacao = 1) as Entradas,
+(Select SUM(Valor) from transacoes WHERE Tipo_Transacao = 2) as Saidas,
+t.Id,
+t.Descricao,
+t.Data,
+t.Valor,
+tt.Descricao as Tipo
+FROM 
+transacoes t
+LEFT JOIN Tipo_Transacao tt on(tt.Id = t.Tipo_Transacao)
+WHERE Id_Usuario = $id
+AND Exibe = 1;
+            ";
 $transacoes = mysqli_fetch_all($db->query($query), 1);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +43,11 @@ $transacoes = mysqli_fetch_all($db->query($query), 1);
             }
 
             fetch("./scripts/excluitransacao.php", myInit)
-            .then(res => console.log(res))
+            .then(res => {
+                if(res.status === 200) {
+                    document.location = "http://localhost/seminario03/transacoes.php"
+                }
+            })
             .catch(rej => console.log(rej));
             
         }
@@ -49,9 +60,13 @@ $transacoes = mysqli_fetch_all($db->query($query), 1);
     </header>
     <form method="POST" action="./scripts/novatransacao.php">
         <label>Descrição:</label>
-        <input id="descricao" name="descricao" type="text" placeholder="Descrição da transação">
+        <input required id="descricao" name="descricao" type="text" placeholder="Descrição da transação">
         <label for="valor">Valor:</label>
-        <input id="valor" name="valor" type="number" step="0.1" placeholder="Valor da transação">
+        <input required id="valor" name="valor" type="number" step="0.10" placeholder="Valor da transação">
+        <select name="tipo" id="tipo" required>
+            <option value="1">Entrada</option>
+            <option value="2">Saída</option>
+        </select>
         <input type="number" value=<?php echo $id ?> name="id" id="id" hidden="TRUE" />
         <input type="submit" value="Cadastrar">
     </form>
@@ -69,6 +84,7 @@ $transacoes = mysqli_fetch_all($db->query($query), 1);
                     <td>Descrição</td>
                     <td>Valor</td>
                     <td>Data</td>
+                    <td>Tipo</td>
                     <td>Deletar</td>
                 </tr>
             </thead>
@@ -76,15 +92,24 @@ $transacoes = mysqli_fetch_all($db->query($query), 1);
         foreach ($transacoes as $transacao) {
             echo "
                         <tr>
-                            <td>$transacao[Descriao]</td>
+                            <td>$transacao[Descricao]</td>
                             <td>R$$transacao[Valor]</td>
                             <td>$transacao[Data]</td>
+                            <td>$transacao[Tipo]</td>
                             <td><input type='button' value='Excluir' onclick='teste($transacao[Id])'/></td>
                         </tr>
                     ";
         }
 
         echo "</tbody>";
+        $saldo = floatval($transacao['Entradas'] - $transacao['Saidas']);
+        echo 
+        "<tfooter>
+            <tr>
+                <td>Total:</td>
+                <td>R$ $saldo</td>
+            </tr>
+        </tfooter>";
     }
     ?>
 

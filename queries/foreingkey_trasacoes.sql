@@ -1,1 +1,0 @@
-ALTER TABLE transacoes ADD CONSTRAINT FK_Transacao_Usuario FOREIGN KEY transacoes(Id_Usuario) REFERENCES usuarios(Id);

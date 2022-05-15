@@ -1,25 +1,22 @@
 <?php 
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
-
     $db = require_once("./db.php");
+   
+    $baseUrl = $_SERVER["HTTP_HOST"];
     $id = $_POST["id"];  
     $descricao = $_POST["descricao"];
     $valor = $_POST["valor"];
+    $tipo = $_POST["tipo"];
 
    /*  echo "<pre>";
     print_r($_SERVER);
     echo "</pre>"; */
 
-    $query = "INSERT INTO TRANSACOES(Descriao, Valor, Id_Usuario) VALUES('$descricao', $valor, $id)";
+    $query = "INSERT INTO TRANSACOES(Descricao, Valor, Id_Usuario, Tipo_Transacao) VALUES('$descricao', $valor, $id, $tipo)";
     
-    if($db) {
-        $db->query($query);
-        echo "Cadastrado com sucesso!";
+    if($db->query($query)) {
+        header("Location: http://$baseUrl/seminario03/transacoes.php");
     }else {
-        echo "Falha ao cadastrar!";
-        
+        echo "Falha ao cadastrar!";        
     }
 
 
