@@ -3,9 +3,7 @@
     //$_SESSION["logged"] = false;
    // $_SESSION["Nome"] = "";
 
-    if(isset($_SESSION["Nome"])) {
-        print_r($_SESSION);
-    }
+    $nome = isset($_SERVER["Nome"]) ? " - " + $_SESSION["Nome"] : "";
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo.css">
     
-    <title>Finanças - <?php echo $_SESSION["Nome"] ?></title>
+    <title>Finanças<?php echo $nome ?></title>
 </head>
 <body>
    
