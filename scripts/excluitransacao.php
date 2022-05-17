@@ -13,7 +13,7 @@
     $query = "DELETE FROM Transacoes WHERE Id = $id";
  
        if($db->query($query)) {
-           return header("Location: http://+$serverHost+transacoes.php", true, 200);
+           return header("Location: http://$serverHost/transacoes.php", true, 200);
        }else {
            return http_response_code(400);
        }

@@ -17,11 +17,11 @@
         $_SESSION["Nome"] = $response["Nome"];
         $_SESSION["Id"] = $response["Id"];
         $_SESSION["logged"] = true;
-        header("Location: http://$baseUrl/seminario03/transacoes.php");
+        header("Location: http://$baseUrl/transacoes.php");
     }else{
         echo "Error: " . $query . "<br>" . $conn->error;
         $_SESSION["logged"] = false;
-        header("Location: http://$baseUrl/seminario03/index.php?login=1");
+        header("Location: http://$baseUrl/index.php?login=1");
     }
 
     $db->close();
