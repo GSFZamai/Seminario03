@@ -11,7 +11,7 @@
     print_r($_SERVER);
     echo "</pre>"; */
 
-    $query = "INSERT INTO TRANSACOES(Descricao, Valor, Id_Usuario, Tipo_Transacao) VALUES('$descricao', $valor, $id, $tipo)";
+    $query = "INSERT INTO Transacoes(Descricao, Valor, Id_Usuario, Tipo_Transacao) VALUES('$descricao', $valor, $id, $tipo)";
     
     if($db->query($query)) {
         header("Location: http://$baseUrl/seminario03/transacoes.php");

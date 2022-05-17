@@ -4,7 +4,7 @@
     $login = $_POST["email"];
     $password = sha1($_POST["password"]);
 
-    $query = "SELECT Id, Nome FROM USUARIOS WHERE Email = '$login' AND Senha = '$password';";
+    $query = "SELECT Id, Nome FROM Usuarios WHERE Email = '$login' AND Senha = '$password';";
 
     $result = $db->query($query);
 

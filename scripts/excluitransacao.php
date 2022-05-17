@@ -10,7 +10,7 @@
         die;
     }
 
-    $query = "DELETE FROM transacoes WHERE Id = $id";
+    $query = "DELETE FROM Transacoes WHERE Id = $id";
  
        if($db->query($query)) {
            return header("Location: http://+$serverHost+transacoes.php", true, 200);
