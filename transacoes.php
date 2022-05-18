@@ -3,7 +3,7 @@ session_start();
 $nome = $_SESSION["Nome"];
 $id = $_SESSION["Id"];
 $db = require_once("./scripts/db.php");
-
+$serverHost = $_SERVER["HTTP_HOST"];
 $query = "
 SELECT 			
 (Select SUM(Valor) from Transacoes WHERE Tipo_Transacao = 1) as Entradas,
@@ -45,7 +45,7 @@ $transacoes = mysqli_fetch_all($db->query($query), 1);
             fetch("./scripts/excluitransacao.php", myInit)
             .then(res => {
                 if(res.status === 200) {
-                    document.location = "http://localhost/seminario03/transacoes.php"
+                    document.location = "http://seminario03.herokuapp.com/transacoes.php"
                 }
             })
             .catch(rej => console.log(rej));
