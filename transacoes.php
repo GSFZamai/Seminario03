@@ -62,7 +62,7 @@ $transacoes = mysqli_fetch_all($db->query($query), 1);
         <label>Descrição:</label>
         <input required id="descricao" name="descricao" type="text" placeholder="Descrição da transação">
         <label for="valor">Valor:</label>
-        <input required id="valor" name="valor" type="number" step="0.10" value="0.00" placeholder="Valor da transação">
+        <input required id="valor" name="valor"  type="number" step="0.01" placeholder="Valor da transação">
         <select name="tipo" id="tipo" required>
             <option value="1">Entrada</option>
             <option value="2">Saída</option>
