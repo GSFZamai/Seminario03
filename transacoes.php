@@ -6,15 +6,15 @@ $db = require_once("./scripts/db.php");
 
 $query = "
 SELECT 			
-(Select SUM(Valor) from transacoes WHERE Tipo_Transacao = 1) as Entradas,
-(Select SUM(Valor) from transacoes WHERE Tipo_Transacao = 2) as Saidas,
+(Select SUM(Valor) from Transacoes WHERE Tipo_Transacao = 1) as Entradas,
+(Select SUM(Valor) from Transacoes WHERE Tipo_Transacao = 2) as Saidas,
 t.Id,
 t.Descricao,
 t.Data,
 t.Valor,
 tt.Descricao as Tipo
 FROM 
-transacoes t
+Transacoes t
 LEFT JOIN Tipo_Transacao tt on(tt.Id = t.Tipo_Transacao)
 WHERE Id_Usuario = $id
 AND Exibe = 1;
