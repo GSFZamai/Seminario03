@@ -29,4 +29,4 @@
   - Leonardo
 
 ## Link Protótipo
-  [https://gsfzamai.github.io/Seminario03/](https://seminario03.herokuapp.com/)
+  [https://seminario03.herokuapp.com/](https://seminario03.herokuapp.com/)
